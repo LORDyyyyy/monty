@@ -8,6 +8,25 @@
 #include <string.h>
 
 
+extern int top;
+
+
+/**
+ * struct data_s - the struct that will hold the commands from the monty file
+ * @args: commands
+ * @argc: commands count
+ * @prog_name: the executable file name
+ * @file_name: the monty file name
+ *
+ */
+
+typedef struct data_s
+{
+	char **args;
+	char *prog_name;
+	char *file_name;
+	int argc;
+} data_t;
 
 
 /**
@@ -42,6 +61,15 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+
+/*	args.c - handle the arguments	*/
+
+void get_args(char **av, data_t *data);
+
+int get_line_count(char *file_name);
+
+/*		end	args.c		*/
 
 
 
